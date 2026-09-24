@@ -112,7 +112,6 @@ user-center/
 │     ├─ application-template.yml   # 脱敏配置模板
 │     ├─ mapper/                    # MyBatis XML
 │     └─ sql/scheme.sql             # 用户表结构
-├─ 代码规范.md                       # Java 注释与格式规范
 └─ README.md                         # 项目总览
 ```
 
@@ -202,12 +201,11 @@ npm run build
 
 - 本地数据库凭据保存在 `application.yml`，该文件已加入 Git 忽略规则。
 - 仓库只提交 `application-template.yml`，其中不包含真实账号和密码。
+- 前端 API 默认使用同源地址；跨域部署时通过 `VUE_APP_API_BASE_URL` 指定后端地址。
 - 前端请求需要携带 Cookie，部署到不同域名时需同步检查后端 CORS 与 Session Cookie 配置。
 - 当前密码方案用于学习基础认证流程；生产系统应改用 BCrypt、Argon2 等专用密码哈希算法。
 
 ## 开发规范
-
-后端代码统一遵循 [`代码规范.md`](代码规范.md)：
 
 - 类、接口、方法、字段和依赖使用规范化中文 Javadoc。
 - Service 接口描述业务契约，ServiceImpl 描述具体实现机制。

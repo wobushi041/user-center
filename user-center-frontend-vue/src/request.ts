@@ -3,9 +3,8 @@ import axios from "axios";
 const SUCCESS_CODES = [0, 200]; // 兼容旧接口 code=0 与新接口 code=200
 
 const myAxios = axios.create({
-  // 区分开发和线上环境；开发态使用同源地址，交由 devServer 代理解决跨域
-  baseURL:
-    process.env.NODE_ENV === "development" ? "/" : "https://codefather.cn",
+  // 默认使用同源地址；跨域部署时通过环境变量指定后端地址
+  baseURL: process.env.VUE_APP_API_BASE_URL || "/",
   timeout: 10000,
   withCredentials: true,
 });
